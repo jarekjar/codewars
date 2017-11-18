@@ -31,7 +31,7 @@ function WhatIsTheTime(timeInMirror) {
     console.log(timeInMirror);
     var time = timeInMirror.split(':').map(Number);
     var res = [0, 0];
-    // returns time as an array formatted: [hh:mm]
+    // returns time as an array formatted: [h,m]
     // creates res as an empty array
     // e.g. 08:20 --> [8,20]
 
