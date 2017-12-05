@@ -54,10 +54,7 @@ function phone(strng, num) {
         if (newString[i].includes(num)) {
             count++
             name = newString[i].match(/<.*?>/g).toString().slice(1, name.length - 1)
-            address = newString[i].replace(name, '').replace(phoneNum, "");
-            address = address.replace(/[^a-zA-Z_.0-9- ]/g, "")
-            address = address.replace(/_/g, " ");
-            address = address.replace(/\s+/g, ' ').trim();
+            address = newString[i].replace(name, '').replace(phoneNum, "").replace(/[^a-zA-Z_.0-9- ]/g, "").replace(/_/g, " ").replace(/\s+/g, ' ').trim();
         }
     }
     if (count > 1) {
