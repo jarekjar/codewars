@@ -33,59 +33,59 @@ validSolution([
 ]); // => false
 
 */
-function validSolution(board){
-  return rowCheck(board) && columnCheck(board) && boxCheck(board);
-    
-function rowCheck (board) {
-let tempArr = [];
-  for(let i = 0; i < board.length; i++){
-    for(let j = 0; j < board[i].length; j++){
-      if (board[i][j] === 0){
-        return false;
-      }
-      if (tempArr.indexOf(board[i][j]) == -1){
-        tempArr.push(board[i][j]);
-      }
-    }
-    if (tempArr.length !== board[i].length){
-      return false;
-    }
-    tempArr = [];
-  }
-  return true;
-  }
-  
-  function columnCheck (board) {
-    let tempArr = [];
-    for(let i = 0; i < board.length; i++){
-      if (tempArr.indexOf(board[i][0]) == -1){
-        tempArr.push(board[i][0]);
-      }
-    }
-    if (tempArr.length !== board.length){
-      return false;
-    }
-    return true;
-  }
-  
-  function boxCheck (board) {
-    let tempArr = [];
-    for(let boxNum = 0; boxNum < 9; boxNum++){
-      for(let i = boxNum; i < boxNum + 3; i++){
-        for (let j = boxNum; j < boxNum + 3; j++){
-          if (tempArr.indexOf(board[i][j]) == -1){
-            tempArr.push(board[i][j]);
-          }
+function validSolution(board) {
+    return rowCheck(board) && columnCheck(board) && boxCheck(board);
+
+    function rowCheck(board) {
+        let tempArr = [];
+        for (let i = 0; i < board.length; i++) {
+            for (let j = 0; j < board[i].length; j++) {
+                if (board[i][j] === 0) {
+                    return false;
+                }
+                if (tempArr.indexOf(board[i][j]) == -1) {
+                    tempArr.push(board[i][j]);
+                }
+            }
+            if (tempArr.length !== board[i].length) {
+                return false;
+            }
+            tempArr = [];
         }
-      }
-      if (tempArr.length !== board.length) {
-        return false;
-      }
-      tempArr = [];
-      boxNum = boxNum + 2
+        return true;
     }
-    return true;
-  }
-  
-  
+
+    function columnCheck(board) {
+        let tempArr = [];
+        for (let i = 0; i < board.length; i++) {
+            if (tempArr.indexOf(board[i][0]) == -1) {
+                tempArr.push(board[i][0]);
+            }
+        }
+        if (tempArr.length !== board.length) {
+            return false;
+        }
+        return true;
+    }
+
+    function boxCheck(board) {
+        let tempArr = [];
+        for (let boxNum = 0; boxNum < 9; boxNum++) {
+            for (let i = boxNum; i < boxNum + 3; i++) {
+                for (let j = boxNum; j < boxNum + 3; j++) {
+                    if (tempArr.indexOf(board[i][j]) == -1) {
+                        tempArr.push(board[i][j]);
+                    }
+                }
+            }
+            if (tempArr.length !== board.length) {
+                return false;
+            }
+            tempArr = [];
+            boxNum = boxNum + 2
+        }
+        return true;
+    }
+
+
 }
